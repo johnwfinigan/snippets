@@ -5,7 +5,9 @@ package { ['build-essential',
 	'libpixman-1-dev',
 	'libfdt-dev',
 	'libsdl1.2-dev',
-	'libsdl2-dev']:
+	'libsdl2-dev', 
+	'libpcap-dev',
+	'libaio-dev']:
 	
 	ensure => "installed",
 }
@@ -13,9 +15,23 @@ package { ['build-essential',
 package { ['emacs24',
 	'git',
 	'curl',
+	'screen',
 	'parallel',
 	'vim']:
 
 ensure => "installed",
 }
 
+
+package { ['gv',
+	'eog']:
+
+ensure => "installed",
+}
+
+
+package { ['xfsprogs',
+	'xfsdump']:
+
+ensure => "installed",
+}
