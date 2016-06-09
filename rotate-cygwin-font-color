@@ -1,0 +1,13 @@
+# Add this to your .bash_profile
+# each time you start Cygwin mintty, color settings are rewritten to change the color
+# of your font *for next mintty start*, such that on average, each window you start has
+# a different font color than the last.
+
+# Remember, the trick here is that mintty is a windows native program, so it starts
+# BEFORE any of the unix tools are availaible.
+
+# RGB 155 as a constant provides a decent level of brightness for a black background
+# Font colors will on average be saturated pastels.
+
+echo -n -e "BoldAsFont=no\nFontHeight=14\nForegroundColour=" > .minttyrc
+echo "$((($RANDOM%100)+155)),$((($RANDOM%100)+155)),$((($RANDOM%100)+155))" >> .minttyrc
