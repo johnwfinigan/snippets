@@ -28,3 +28,6 @@ d.OIG:232C16
 
 # DANGER - this was a quick hack job, no guarantees the colors are as Kelly intended
 # But they are probably close.
+
+# Try it! (in xterm)
+# awk -F":" '/^[a-z]/ { RGBSt="0x"$2; RGB=strtonum(RGBSt); R=and(0xFF,rshift(RGB,16)) ; G=and(0xFF,rshift(RGB,8)); B=and(0xFF,RGB); print "printf \"\\e[38;2;" R ";" G ";" B "m " $0 "\"" }' kelly-22-colors-to-rgb | bash
