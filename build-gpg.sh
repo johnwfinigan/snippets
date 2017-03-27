@@ -5,7 +5,7 @@
 
 set -e
 
-#sudo yum install libassuan-devel libgpg-error-devel  libksba-devel zlib-devel pth-devel
+#sudo yum install libassuan-devel libksba-devel zlib-devel pth-devel
 
 GPG_PATH=$HOME/local
 
