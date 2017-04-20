@@ -1,0 +1,21 @@
+" airline requires using Cygwin mintty Options
+" menu to set mintty font to a powerline patched
+" font and set your terminal type to xterm-256color
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+set laststatus=2
+let g:airline_powerline_fonts=1
+let g:airline_theme='simple'
+
+
+
+set viminfo="NONE"
+set tabstop=4
+set softtabstop=4
+set expandtab
+set cursorline
+set showmatch
+set hlsearch
+nnoremap <leader><space> :nohlsearch<CR>
