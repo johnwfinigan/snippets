@@ -1,0 +1,14 @@
+global:
+  logging:
+    - type: syslog
+      format: human
+      level: info
+
+jobs:
+  - name: sink
+    type: sink
+    serve:
+      type: stdinserver
+      client_identities:
+        - "s_server"
+    root_fs: "usb2/zrepl/sink"

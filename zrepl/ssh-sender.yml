@@ -1,0 +1,43 @@
+global:
+  logging:
+    - type: syslog
+      format: human
+      level: info
+
+jobs:
+  - name: backup_to_usb2
+    type: push
+    connect: 
+      type: ssh+stdinserver
+      host: 172.16.10.50
+      user: root
+      port: 22
+      identity_file: /etc/zrepl/ssh/id
+    filesystems: {
+      "tank/samba": true,
+      "tank/os": true,
+      "tank/john": true
+    }
+    snapshotting:
+      type: periodic
+      prefix: zrepl_
+      interval: 24h
+    pruning:
+      keep_sender:
+      - type: not_replicated
+      - type: regex
+        negate: true
+        regex: "^zrepl_"
+      - type: grid
+        grid: 1x1d(keep=all) | 90x1d | 24x30d
+        regex: "^zrepl_"
+      keep_receiver:
+      - type: regex
+        negate: true
+        regex: "^zrepl_"
+      - type: grid
+        grid: 1x1d(keep=all) | 90x1d | 24x30d
+        regex: "^zrepl_"
+
+
+
